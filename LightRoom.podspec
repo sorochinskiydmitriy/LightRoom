@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "LightRoom"
-  s.version      = "0.9.9"
+  s.version      = "0.1.0"
   s.summary      = "CoreImage Library"
   s.description  = "Easy Chaining ImageFilter with CoreImage."
 
