@@ -73,8 +73,8 @@ class FilterComponentTests: XCTestCase {
         
         let context = CIContext()
         
-        let uiimage1 = UIImagePNGRepresentation(UIImage(cgImage: context.createCGImage(image1, from: image1.extent)!))
-        let uiimage2 = UIImagePNGRepresentation(UIImage(cgImage: context.createCGImage(image2, from: image2.extent)!))
+        let uiimage1 = UIImage(cgImage: context.createCGImage(image1, from: image1.extent)!).pngData()
+        let uiimage2 = UIImage(cgImage: context.createCGImage(image2, from: image2.extent)!).pngData()
         
         XCTAssert((uiimage1 == uiimage2!) == true)
     }

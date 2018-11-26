@@ -55,7 +55,7 @@ open class FilterComponent: FilterComponentType {
         self.filterName = filterName
         self.parameters = parameters
         self.filterFactory = {
-            return CIFilter(name: filterName, withInputParameters: parameters)!
+            return CIFilter(name: filterName, parameters: parameters)!
         }
     }
     
@@ -76,7 +76,7 @@ open class GeneratorComponent {
     }
     
     open var outputImage: CIImage? {
-        return self.filter.outputImage?.cropping(to: self.cropRect)
+        return self.filter.outputImage?.cropped(to: self.cropRect)
     }
     
     open let filterName: String
@@ -90,7 +90,7 @@ open class GeneratorComponent {
         self.cropRect = cropRect
         
         self.filterFactory = {
-            return CIFilter(name: filterName, withInputParameters: parameters)!
+            return CIFilter(name: filterName, parameters: parameters)!
         }
     }
     
@@ -99,7 +99,7 @@ open class GeneratorComponent {
             throw LightRoomError.invalidOutputImage
         }
         
-        return image.cropping(to: rect)
+        return image.cropped(to: rect)
     }
     
     open func effect(_ chain: FilterChain) throws -> CIImage {
